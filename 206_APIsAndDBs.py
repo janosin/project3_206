@@ -18,7 +18,7 @@ import twitter_info # same deal as always...
 import json
 import sqlite3
 
-## Your name:
+## Your name: Nicole Janosi
 ## The names of anyone you worked with on this project:
 
 #####
@@ -74,7 +74,20 @@ def get_user_tweets(x):
 		cache_file = open(CACHE_FNAME, 'w') #then writes it to cache file
 		cache_file.write(json.dumps(CACHE_DICTION)+ "\n")
 		cache_file.close()
-	return twitter_results
+		
+	conn = sqlite3.connect("Users.sqlite")
+	cur = conn.cursor()
+
+	cur.execute('DROP TABLE IF EXISTS Users')
+	cur.execute('CREATE TABLE Users (user_id TEXT, text_ TEXT, time_posted DATETIME, retweets NUMBER)')
+	
+	cann = sqlite3.connect("Tweets.sqlite")
+	cun = cann.cursor()
+
+	cun.execute('DROP TABLE IF EXISTS Tweets')
+	cun.execute('CREATE TABLE Tweets (user_id TEXT, screen_name TEXT, num_favs NUMBER, description TEXT)')
+	
+	
 
 	
 # Write an invocation to the function for the "umich" user timeline and 
