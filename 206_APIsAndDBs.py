@@ -189,7 +189,7 @@ for x in y:
 	for i in x:
 		screen_names.append(i)
 
-
+#yescool
 
 
 # Make a query to select all of the tweets (full rows of tweet information)
@@ -224,7 +224,7 @@ joined_data = list(cur.execute('SELECT screen_name, text_ FROM Users INNER JOIN 
 # tweet in descending order based on retweets. Save the resulting 
 # list of tuples in a variable called joined_data2.
 
-joined_data2 = list(cur.execute('SELECT screen_name, text_ FROM Users INNER JOIN Tweets ON Users.user_id = Tweets.user_posted ORDER BY retweets DESC'))
+joined_data2 = list(cur.execute('SELECT screen_name, text_ FROM Users INNER JOIN Tweets ON Users.user_id = Tweets.user_posted ORDER BY retweets DESC')) 
 
 
 
